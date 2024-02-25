@@ -611,6 +611,11 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
   integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
+ky@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-1.2.0.tgz#698be7d2c48cf875d2d4721fc4c69b681877a112"
+  integrity sha512-dnPW+T78MuJ9tLAiF/apJV7bP7RRRCARXQxsCmsWiKLXqGtMBOgDVOFRYzCAfNe/OrRyFyor5ESgvvC+QWEqOA==
+
 light-my-request@^5.11.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/light-my-request/-/light-my-request-5.11.0.tgz#90e446c303b3a47b59df38406d5f5c2cf224f2d1"

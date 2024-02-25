@@ -1,12 +1,19 @@
-import Fastify from 'fastify';
-import proxy from '@fastify/http-proxy'
+import {FastifyInstance, FastifyReply, FastifyRequest} from 'fastify';
 
-const server = Fastify();
+type ProxyRequest = FastifyRequest<{
+    Querystring: { payload: any }
+}>;
 
-server.register(proxy, {
-    upstream: 'http://my-api.example.com',
-    prefix: '/api/proxy',
-    http2: false,
-});
+export async function Init(fastify: FastifyInstance) {
+    fastify.get('/redirect', async (request: ProxyRequest, reply: FastifyReply) => {
+        console.log('request.query.payload:"', request.query.payload)
+        const { payload } = request.query
+        // const url = new URL()
 
-server.listen({ port: 8080 });
+        return reply.redirect(302, 'https://fastify.dev');
+    });
+
+    fastify.get('/a', async (request, reply) => {
+        return 'this is a';
+    });
+}
