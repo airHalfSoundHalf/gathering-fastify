@@ -14,16 +14,14 @@ const opts: RouteShorthandOptions = {
     }
 }
 
-type PostRequest = FastifyRequest<{
-    Querystring: {
-        payload: any
-    }
-}>;
+type PostRequest = {
+    payload: any
+} & FastifyRequest
 
 export async function Post(fastify: FastifyInstance) {
-fastify.post('/api/post', opts,  async (request: PostRequest, reply: FastifyReply) => {
-    const { payload } = request.query
-    // console.log('request.query:', request.query)
+fastify.post('/api/post', opts,  async (request, reply: FastifyReply) => {
+    const { payload } = request.query as PostRequest;
+    console.log('payload', payload)
     reply.send({
         response: payload
     })

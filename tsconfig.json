@@ -8,5 +8,11 @@
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
-  }
+  },
+  "include": [
+    "src",
+    "routes",
+    "server.ts",
+    "app.ts"
+  ]
 }

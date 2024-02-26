@@ -7,17 +7,20 @@
     "@fastify/http-proxy": "^9.4.0",
     "@fastify/type-provider-typebox": "^4.0.0",
     "@sinclair/typebox": "^0.32.14",
-    "@types/node": "^20.11.19",
     "fastify": "^4.26.1",
     "fastify-cli": "^6.1.1",
-    "ky": "^1.2.0"
+    "got": "^14.0.0",
+    "nodemon": "^3.1.0",
+    "tsconfig-paths": "^4.2.0"
   },
   "scripts": {
-    "dev": "ts-node server.ts",
+    "dev": "npx tsx server.ts",
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/node": "^20.11.20",
     "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }
 }
