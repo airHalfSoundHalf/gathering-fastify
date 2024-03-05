@@ -3,7 +3,7 @@ import http from "http";
 import { TypeBoxTypeProvider } from "@fastify/type-provider-typebox"
 import { Routes } from './routes'
 
-const app = fastify<http.Server, http.IncomingMessage>({
+export const app = fastify<http.Server, http.IncomingMessage>({
     logger: true
 }).withTypeProvider<TypeBoxTypeProvider>()
 
@@ -11,6 +11,7 @@ const app = fastify<http.Server, http.IncomingMessage>({
 //     reply.send({ method: request.method, body: request.body });
 // });
 
-app.register(Routes)
+app.register(Routes);
 
 export default app
+

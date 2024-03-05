@@ -8,6 +8,6 @@ async function main () {
     })
     await app.ready()
 
-    app.all('SELECT * FROM myTable', (err, rows) => {
+    app.all('SELECT * FROM Users', (err, rows) => {
     })
 }
