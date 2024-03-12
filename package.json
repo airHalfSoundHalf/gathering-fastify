@@ -4,30 +4,22 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@fastify/http-proxy": "^9.4.0",
     "@fastify/type-provider-typebox": "^4.0.0",
     "@sinclair/typebox": "^0.32.14",
     "fastify": "^4.26.1",
     "fastify-cli": "^6.1.1",
     "fastify-sqlite": "^1.1.0",
     "got": "^14.0.0",
-    "nodemon": "^3.1.0",
-    "sequelize": "^6.37.1",
-    "sqlite3": "^5.1.7",
-    "tsconfig-paths": "^4.2.0"
+    "sqlite3": "^5.1.7"
   },
   "scripts": {
     "dev": "npx tsx server.ts",
-    "sequelize": "npx node_modules/.bin/sequelize",
-    "migrate": "sequelize db:migrate",
-    "seed": "sequelize db:seed:all",
-    "test": "NODE_ENV=test node app.test.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "NODE_ENV=test node app.test.ts"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/node": "^20.11.20",
-    "pino-pretty": "^10.3.1",
-    "tap": "^18.7.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"

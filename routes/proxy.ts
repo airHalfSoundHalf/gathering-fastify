@@ -3,7 +3,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import got from 'got'
 import { IncomingHttpHeaders, OutgoingHttpHeaders } from 'http2';
 
-type ProxyRequest = {
+type ReqQueryParams = {
     target: string;
 } & FastifyRequest
 
@@ -14,7 +14,7 @@ export async function ProxyInit(fastify: FastifyInstance) {
      * @method GET
      * */
     fastify.get('/api/proxy', async (request, reply: FastifyReply) => {
-        const { target } = request.query as ProxyRequest;
+        const { target } = request.query as ReqQueryParams;
         const instanceUrl: URL = new URL(target);
 
         try {
@@ -29,7 +29,7 @@ export async function ProxyInit(fastify: FastifyInstance) {
      * @method POST
      * */
     fastify.post('/api/proxy', async (request, reply: FastifyReply) => {
-        const { target, params } = request.query as ProxyRequest;
+        const { target, params } = request.query as ReqQueryParams;
         const instanceUrl = new URL(target);
 
         // 쿼리 파라미터가 있을 시
@@ -62,7 +62,7 @@ export async function ProxyInit(fastify: FastifyInstance) {
      * @define 토큰 일치 여부
      * */
     fastify.post('/api/proxy/token', async (request, reply: FastifyReply) => {
-        const { target } = request.query as ProxyRequest;
+        const { target } = request.query as ReqQueryParams;
         const instanceUrl = new URL(target);
 
         let customHeaders = {
