@@ -10,9 +10,10 @@
     "experimentalSpecifierResolution": "node"
   },
   "include": [
-    "src",
+    "config",
+    "db",
     "routes",
-    "server.ts",
+    "schema",
     "app.ts"
   ]
 }

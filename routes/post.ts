@@ -1,29 +1,17 @@
-import {FastifyInstance, FastifyReply, FastifyRequest, RouteShorthandOptions} from "fastify";
-import { Type } from '@sinclair/typebox';
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { NormalPostOpts } from "../schema/post";
 
-const opts: RouteShorthandOptions = {
-    schema: {
-        response: {
-            200: {
-                response: Type.Number()
-            }
-        },
-        querystring: {
-            payload: Type.Any()
-        }
-    }
-}
-
-type PostRequest = {
-    payload: any
+type ReqQueryParams = {
+    payload: string
 } & FastifyRequest
 
-export async function Post(fastify: FastifyInstance) {
-fastify.post('/api/post', opts,  async (request, reply: FastifyReply) => {
-    const { payload } = request.query as PostRequest;
+export async function NormalPost(fastify: FastifyInstance) {
+fastify.post('/api/post', { ...NormalPostOpts },  async (req, reply: FastifyReply) => {
+    const { payload } = req.query as ReqQueryParams;
     console.log('payload', payload)
+
     reply.send({
-        response: payload
+        result: payload
     })
 })
 }
